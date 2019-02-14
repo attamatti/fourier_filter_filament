@@ -127,6 +127,7 @@ flat = np.sum(out,axis=1)
 x= [i*pixelsize for i in range(len(flat))]
 plt.plot(x,flat)
 
+# calculate the moving average of the raw data
 def moving_average(a, n) :
     ret = np.cumsum(a, dtype=float)
     ret[n:] = ret[n:] - ret[:-n]
@@ -137,6 +138,7 @@ avg = moving_average(flat,avgbox)
 avgx = [(0.5*avgbox)+(i*pixelsize) for i in range(len(avg))]
 plt.plot(avgx,avg)
 
+# identify the 'peaks' - actually troughs
 peaksx,peaksy= [],[]
 indpeaks = []
 n=0
@@ -161,6 +163,8 @@ for i in avg:
     n+=1
 plt.scatter(peaksx,peaksy,color='red')
 
+
+# output
 n=1
 print('\nPeaks found at (discard 1st and last): ')
 for i in indpeaks[1:-1]:
@@ -176,7 +180,7 @@ plt.ylabel('pixel intensity')
 plt.xlabel('Length (Angstroms)')
 plt.savefig('{0}_plot.png'.format(imgname))
 
-# save the chopped PS 
+# save the chopped PS  - not really that informative
 #ps2D = np.array(np.abs( image_FFT )**2,dtype=np.uint8)
 #scipy.misc.imsave('inv_PS.tif'.format(imgname),ps2D)
 
