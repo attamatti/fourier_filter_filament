@@ -174,7 +174,7 @@ for i in indpeaks[1:-2]:
 
 plt.ylabel('pixel intensity')
 plt.xlabel('Length (Angstroms)')
-plt.savefig('plot.png')
+plt.savefig('{0}_plot.png'.format(imgname))
 
 # save the chopped PS 
 #ps2D = np.array(np.abs( image_FFT )**2,dtype=np.uint8)
