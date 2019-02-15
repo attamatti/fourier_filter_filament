@@ -165,16 +165,18 @@ plt.scatter(peaksx,peaksy,color='red')
 
 
 # output
-n=1
-print('\nPeaks found at (discard 1st and last): ')
-for i in indpeaks[1:-1]:
-    print round(np.mean(i),2)
-    plt.axvline(x=np.mean(i),color='k', linestyle='--')
+#attempt at automatic crossover identification... not working very well. 
 
-print('\n{0} crossovers:'.format(len(indpeaks[1:-2])))    
-for i in indpeaks[1:-2]:
-    print round(np.mean(indpeaks[n+1])-np.mean(i),2)
-    n+=1
+#n=1
+#print('\nPeaks found at (discard 1st and last): ')
+#for i in indpeaks[1:-1]:
+#    print round(np.mean(i),2)
+#    plt.axvline(x=np.mean(i),color='k', linestyle='--')
+#
+#print('\n{0} crossovers:'.format(len(indpeaks[1:-2])))    
+#for i in indpeaks[1:-2]:
+#    print round(np.mean(indpeaks[n+1])-np.mean(i),2)
+#    n+=1
 
 plt.ylabel('pixel intensity')
 plt.xlabel('Length (Angstroms)')
